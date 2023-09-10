@@ -23,4 +23,16 @@
 .bars-container {
     width: 80%;
     margin-left: 10%;
+    height: 30em;
+    display: flex;
+    flex-direction: row;
+
+    .bar {
+        flex: 0 0 auto;
+        flex-grow: 1;
+        width: 10px;
+        background: red;
+        margin: 2px;
+        height: 100%;
+    }
 }
