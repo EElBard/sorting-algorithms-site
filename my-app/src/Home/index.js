@@ -1,5 +1,4 @@
 import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
 import './index.scss'
 import { useState } from 'react'
 import Bar from '../Bar'
@@ -12,12 +11,15 @@ const Home = () => {
     const maxHeight = 100;
 
     const addBar = () => {
-        const randomHeight = Math.floor(
-          Math.random() * (maxHeight - minHeight + 1) + minHeight
-        );
-        const newBars = [...bars, randomHeight];
-        setBars(newBars);
-      };
+        if (bars.length < 50) {
+            const randomHeight = Math.floor(
+            Math.random() * (maxHeight - minHeight + 1) + minHeight
+            )
+            const newBars = [...bars, randomHeight]
+            setBars(newBars)
+            console.log(newBars)
+        }
+    };
       
 
     const removeBar = () => {
@@ -26,7 +28,17 @@ const Home = () => {
           newBars.pop()
           setBars(newBars)
         }
-      }
+    }
+
+    const generateArray = () => {
+        setBars([])
+        addBar()
+    }
+
+    const selectionSort = () => {
+        const newBars = [...bars].sort(function(a, b){return a - b})
+        setBars(newBars)
+    }
 
     const clearBars = () => {
         setBars([])
@@ -38,14 +50,11 @@ const Home = () => {
             <div className='settings-button-container'>
                 <Button onClick={addBar} variant='primary'>Add Bar</Button>
                 <Button onClick={removeBar} variant='primary'>Remove Bar</Button>
+                <Button onClick={generateArray} variant='primary'>Generate New Array</Button>
                 <Button onClick={clearBars} variant='primary'>Clear Bars</Button>
-                <Form>
-                    <Form.Label>Number of Bars</Form.Label>
-                    <Form.Control type='number' placeholder='20' />
-                </Form>
             </div>
             <div className='sort-button-container'>
-                <Button variant="secondary">Selection Sort</Button>
+                <Button onClick={selectionSort} variant="secondary">Selection Sort</Button>
             </div>
             <div className='bars-container'>
                 {bars.map((height, index) => (
