@@ -42,15 +42,15 @@ const Home = () => {
         <>
             <div className='settings-button-container'>
                 <Button onClick={addBar} variant='primary'>Add Bar</Button>
+                <Button onClick={removeBar} variant='primary'>Remove Bar</Button>
+                <Button onClick={clearBars} variant='primary'>Clear Bars</Button>
                 <Form>
                     <Form.Label>Number of Bars</Form.Label>
                     <Form.Control type='number' placeholder='20' />
                 </Form>
-                <Button onClick={removeBar} variant='primary'>Remove Bar</Button>
-                <Button onClick={clearBars} variant='primary'>Clear Bars</Button>
             </div>
             <div className='sort-button-container'>
-                <Button variant="secondary">Selection Sort</Button>
+                <Button onClick={selectionSort} variant="secondary">Selection Sort</Button>
             </div>
             <div className='bars-container'>
                 {bars.map((height, index) => (
