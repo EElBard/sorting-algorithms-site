@@ -1,8 +1,21 @@
 .bar {
     flex: 0 0 auto;
     flex-grow: 1;
-    width: 10px;
+    width: 5px;
     background-color: red;
     margin: 2px;
     height: 100%;
+    position: relative;
 }
+  
+  .height-display {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
+    background-color: rgba(0, 0, 0, 0.9); /* Background color for the hover text */
+    padding: 4px 8px; /* Adjust padding as needed */
+    border-radius: 4px; /* Add some rounded corners for a nice look */
+    font-weight: bold; /* Optional: Make the text bold */
+  }
+  
