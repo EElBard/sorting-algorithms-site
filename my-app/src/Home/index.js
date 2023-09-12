@@ -133,7 +133,7 @@ const Home = () => {
                 <Button onClick={removeBar} variant='primary'>Remove Bar</Button>
                 <Button onClick={generateArray} variant='primary'>Generate New Array</Button>
                 <Button onClick={clearBars} variant='primary'>Clear Bars</Button>
-                <Badge>{delay}</Badge>
+                <Badge pill className='delay-label'>{delay}</Badge>
             </div>
             <div className='sort-button-container'>
                 <Button onClick={() => selectionSort()} variant="secondary">Selection Sort</Button>
