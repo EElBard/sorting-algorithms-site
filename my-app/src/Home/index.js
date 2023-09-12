@@ -31,6 +31,11 @@ const Home = () => {
     const clearBars = () => {
         setBars([])
     }
+
+    const selectionSort = () => {
+        const newBars = [...bars].sort((a, b) => a - b)
+        setBars(newBars)
+    }
       
 
     return (
