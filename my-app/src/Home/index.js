@@ -7,7 +7,7 @@ import Bar from '../Bar'
 const Home = () => {
 
     const [bars, setBars] = useState([])
-    const [delay, setDelay] = useState(20)
+    const [delay, setDelay] = useState(100)
 
     const [colorArray, setColorArray] = useState(() => {
         const initialColors = Array(bars.length).fill('red');
@@ -72,7 +72,7 @@ const Home = () => {
           });
       
           // Simulate the sorting process by delaying state updates
-          await new Promise((resolve) => setTimeout(resolve, delay)); // Adjust the delay time as needed
+          await new Promise((resolve) => setTimeout(resolve, delay));
       
           // Find the index of the minimum element in the unsorted part
           for (let j = i + 1; j < n; j++) {
@@ -133,7 +133,11 @@ const Home = () => {
                 <Button onClick={removeBar} variant='primary'>Remove Bar</Button>
                 <Button onClick={generateArray} variant='primary'>Generate New Array</Button>
                 <Button onClick={clearBars} variant='primary'>Clear Bars</Button>
-                <Badge pill className='delay-label'>{delay}</Badge>
+                <div className='delay-settings'>
+                    <Button onClick={() => setDelay(delay + 10)}>Add Delay</Button>
+                    <Badge pill className='delay-label'>{delay}</Badge>
+                    <Button onClick={() => setDelay(delay - 10)}>Subtract Delay</Button>
+                </div>
             </div>
             <div className='sort-button-container'>
                 <Button onClick={() => selectionSort()} variant="secondary">Selection Sort</Button>

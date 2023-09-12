@@ -9,9 +9,13 @@
         margin: 0px 10px;
     }
 
-    .delay-label {
-        width: 3em;
-        padding-top: 1em;
+    .delay-settings {
+        position: relative;
+
+        .delay-label {
+            width: 3em;
+            padding-top: 0.5em;
+        }
     }
 }
 
