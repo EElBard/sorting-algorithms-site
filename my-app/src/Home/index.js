@@ -62,9 +62,7 @@ const Home = () => {
         const n = barsCopy.length;   // Get the number of elements in the array
       
         for (let i = 0; i < n - 1; i++) {
-          let minIndex = i; // Assume the current index is the minimum
-      
-          // Set the color of bars being compared to 'compared' color
+          // Set the color of the current bar to 'compared' color
           setColorArray((prevColors) => {
             const newColors = [...prevColors];
             newColors[i] = sortingColors.compared;
@@ -74,11 +72,30 @@ const Home = () => {
           // Simulate the sorting process by delaying state updates
           await new Promise((resolve) => setTimeout(resolve, delay));
       
+          let minIndex = i; // Assume the current index is the minimum
+      
           // Find the index of the minimum element in the unsorted part
           for (let j = i + 1; j < n; j++) {
+            // Set the color of bars being compared to 'compared' color
+            setColorArray((prevColors) => {
+              const newColors = [...prevColors];
+              newColors[j] = sortingColors.compared;
+              return newColors;
+            });
+      
+            // Simulate the sorting process by delaying state updates
+            await new Promise((resolve) => setTimeout(resolve, delay));
+      
             if (barsCopy[j] < barsCopy[minIndex]) {
               minIndex = j;
             }
+      
+            // Reset the color of bars being compared to the original color ('red') after comparison
+            setColorArray((prevColors) => {
+              const newColors = [...prevColors];
+              newColors[j] = 'red';
+              return newColors;
+            });
           }
       
           // Swap the elements in barsCopy
@@ -108,6 +125,7 @@ const Home = () => {
           });
         }
       };
+      
       
 
     const clearBars = () => {
