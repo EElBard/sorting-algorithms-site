@@ -38,8 +38,6 @@ const Home = () => {
             return newBars
         })
     }
-    
-      
 
     const removeBar = () => {
         if (bars.length > 0) {
